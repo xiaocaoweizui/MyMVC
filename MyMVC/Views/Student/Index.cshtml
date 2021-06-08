@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MyMVC.Models;
+
+@{
+    ViewBag.Title = "Index";
+    // 这里使用的是Razor语法，写的是后台C#代码
+    // ViewData的Value值是Object类型的，需要进行类型转换
+    // 常规写法是先在这里进行类型转换
+    var list = ViewData["Data"] as List<Student>;
+}
+<h2>通过ViewData向View传递数据</h2>
+<div  class="container">
+    <div>
+        <div>
+            1、传递字符串 other:@ViewData["Other"];
+        </div>
+        <div>
+            2、传递字符串 name:@ViewData["name"];
+        </div>
+        <div>
+            3、传递字符串 age:@ViewData["age"];
+        </div>
+        <div>
+            <p>4、传递集合方式一</p>
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in list)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Age</td>
+                            <td>@item.Sex</td>
+                            <td>@item.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>5、传递集合方式二</p>
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewData["Data"] as List<Student>)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Age</td>
+                            <td>@item.Sex</td>
+                            <td>@item.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
