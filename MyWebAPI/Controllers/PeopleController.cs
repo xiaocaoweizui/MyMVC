@@ -9,7 +9,10 @@ using MyWebAPI.Models;
 
 namespace MyWebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    /// <summary>
+    /// 
+    /// </summary>
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class PeopleController : ControllerBase
     {
@@ -18,29 +21,39 @@ namespace MyWebAPI.Controllers
         public PeopleController(PersonContext personContext)
         {
             db = personContext;
-            db.People.Add(new Person { Name = "Ana", Id = 1, Age = 20 });
-            db.People.Add(new Person { Name = "Felipe", Id = 2, Age = 21 });
-            db.People.Add(new Person { Name = "Emillia", Id = 3, Age = 22 });
-
-            
-        }
-
-
-        [HttpGet("people/all")]
-        public ActionResult<IEnumerable<Person>> GetAll()
-        {
-            return new[]
+            if (!db.People.Any())
             {
-            new Person { Name = "Ana" },
-            new Person { Name = "Felipe" },
-            new Person { Name = "Emillia" }
-        };
+                db.People.Add(new Person { Id = 1, Name = "Ana", Age = 20 });
+                db.People.Add(new Person { Id = 2, Name = "Felipe", Age = 21 });
+                db.People.Add(new Person { Id = 3, Name = "Emillia", Age = 22 });
+
+                db.SaveChanges();
+            }
+
         }
 
-        [HttpGet("people/{id}")]
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return Content("Index");
+        }
+
+
+        [HttpGet]
+        public IEnumerable<Person> GetAll()
+        {
+            return db.People.ToList();
+        }
+
+        [HttpGet("{id:max(20)}")]
         public ActionResult<Person> Get(int id)
         {
-            var person = db.People.Find(new { id = 1 });
+            if (id==0)
+            {
+                return StatusCode(StatusCodes.Status406NotAcceptable);
+            }
+
+            var person = db.People.FirstOrDefault(p => p.Id == id);
 
             if (person == null)
             {
@@ -50,11 +63,16 @@ namespace MyWebAPI.Controllers
             return person;
         }
 
-        [HttpPost("people/create")]
-        public IActionResult Create(Person person)
+        [HttpPost("{person}")]
+        public IActionResult Create([FromBody]Person person)
         {
-           
-            return Accepted();
+
+            db.People.Add(person);
+            db.SaveChanges();
+
+         
+
+            return Content("Create Success!");
         }
     }
 

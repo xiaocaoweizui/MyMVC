@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyWebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:MyWebAPI.Controllers.MyCustomConstraint">
+            <summary>
+            自定义约束
+            </summary>
+        </member>
+        <member name="T:MyWebAPI.Controllers.PeopleController">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

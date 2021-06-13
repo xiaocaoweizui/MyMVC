@@ -48,13 +48,27 @@ namespace MyMVC
 
             app.UseEndpoints(endpoints =>
             {
-                //注册默认的路由
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    // url的正则规则，去掉域名和端口后的地址进行匹配
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                ////注册默认的路由
+                //endpoints.MapControllerRoute(
+                //    name: "Home1",
+                //    // url的正则规则，去掉域名和端口后的地址进行匹配
+                //    pattern: "{controller}/{action}/{id}");
 
-                endpoints.MapControllers();
+                ////注册默认的路由
+                //endpoints.MapControllerRoute(
+                //    name: "Home2",
+                //    // url的正则规则，去掉域名和端口后的地址进行匹配
+                //    pattern: "{controller}/{action}");
+
+                //路由模板方式
+                endpoints.MapControllerRoute(
+                   name: "Home",
+                   // url的正则规则，去掉域名和端口后的地址进行匹配
+                   pattern: "{controller=Home}/{action=index}/{id=0}");
+
+
+      
+                //endpoints.MapControllers();
             });
         }
     }
