@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using MyWebAPI.Models;
 
@@ -48,7 +49,7 @@ namespace MyWebAPI.Controllers
         [HttpGet("{id:max(20)}")]
         public ActionResult<Person> Get(int id)
         {
-            if (id==0)
+            if (id == 0)
             {
                 return StatusCode(StatusCodes.Status406NotAcceptable);
             }
@@ -63,16 +64,35 @@ namespace MyWebAPI.Controllers
             return person;
         }
 
-        [HttpPost("{person}")]
+        [HttpPost()]
         public IActionResult Create([FromBody]Person person)
         {
 
             db.People.Add(person);
             db.SaveChanges();
 
-         
-
             return Content("Create Success!");
+        }
+
+        [HttpGet("{bookId}")]
+        public IActionResult GetParams(int bookId)
+        {
+            //https://localhost:5001/api/people/getparams/111?bookId=13
+            var id = Request.Query["bookId"];
+            var id2 = RouteData.Values["bookId"];
+            return Content($"id={id},id2={id2}");
+        }
+
+
+
+        [HttpGet]
+        public bool GetUrl([FromServices]LinkGenerator linkGenerator)
+        {
+            var s = linkGenerator.GetPathByAction(HttpContext, action: "Get", controller: "WeatherForecast", values: null);
+
+            var uri = linkGenerator.GetUriByAction(HttpContext, action: "Get", controller: "WeatherForecast", values: null);
+
+            return true;
         }
     }
 

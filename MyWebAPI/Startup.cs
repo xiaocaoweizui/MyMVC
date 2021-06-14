@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -60,6 +61,17 @@ namespace MyWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseDirectoryBrowser();
+            //使用静态文件
+            app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                RequestPath="/html",
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "MyView"))
+            });
+
+            //使用swagger
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -74,13 +86,6 @@ namespace MyWebAPI
 
             app.UseEndpoints(endpoints =>
             {
-
-              //  endpoints.MapControllerRoute(
-              //name: "people",
-              //pattern: "People/{ssn}",
-              //constraints: new { ssn = "^\\d{3}-\\d{2}-\\d{4}$", },
-              //defaults: new { controller = "People", action = "Index", });
-
                 //使用RouteAttribute，多用于Api
                 endpoints.MapControllers();
             });
