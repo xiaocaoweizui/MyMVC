@@ -7,19 +7,20 @@
     ViewBag.Title = "GetStudent";
 
 }
-<div class="container">
-    <p>通过Model向View传值</p>
-    <dl class="row">
-        <dt class="col-sm-3">ID:</dt>
-        <dd class="col-sm-9">@Model.ID</dd>
-        <dt  class="col-sm-3">Name:</dt>
-        <dd class="col-sm-9">@Model.Name</dd>
-        <dt  class="col-sm-3">Age:</dt>
-        <dd class="col-sm-9">@Model.Age</dd>
-        <dt  class="col-sm-3">Sex:</dt>
-        <dd class="col-sm-9">@Model.Sex</dd>
-        <dt  class="col-sm-3">Email:</dt>
-        <dd class="col-sm-9">@Model.Email</dd>
-    </dl>
+    <div class="container">
+        <p>通过Model向View传值</p>
+        <p>当前时间：@DateTime.Now</p>
+        <dl class="row">
+            <dt class="col-sm-3">ID:</dt>
+            <dd class="col-sm-9">@Model.ID</dd>
+            <dt class="col-sm-3">Name:</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+            <dt class="col-sm-3">Age:</dt>
+            <dd class="col-sm-9">@Model.Age</dd>
+            <dt class="col-sm-3">Sex:</dt>
+            <dd class="col-sm-9">@Model.Sex</dd>
+            <dt class="col-sm-3">Email:</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+        </dl>
 
-</div>
+    </div>

@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using MyRazor.Data;
 
-namespace MyMVC
+namespace MyRazor
 {
     public class Startup
     {
@@ -23,7 +25,10 @@ namespace MyMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddRazorPages();
+
+            services.AddDbContext<MovieContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,10 +40,11 @@ namespace MyMVC
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -48,30 +54,7 @@ namespace MyMVC
 
             app.UseEndpoints(endpoints =>
             {
-                //注册默认的路由
-                endpoints.MapControllerRoute(
-                    name: "Default",
-                    // url的正则规则，去掉域名和端口后的地址进行匹配
-                    pattern: "{controller}/{action}");
-
-                ////注册默认的路由
-                //endpoints.MapControllerRoute(
-                //    name: "Home2",
-                //    // url的正则规则，去掉域名和端口后的地址进行匹配
-                //    pattern: "{controller}/{action}/{id}",
-                //    defaults:new { controller="Home",action="Index"},
-                //    constraints:new { id=@"d{2}"}
-                // );
-
-                ////路由模板方式
-                //endpoints.MapControllerRoute(
-                //   name: "Home",
-                //   // url的正则规则，去掉域名和端口后的地址进行匹配
-                //   pattern: "{controller=Home}/{action=index}/{id=0}");
-
-
-
-                //endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }

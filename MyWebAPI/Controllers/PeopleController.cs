@@ -74,7 +74,7 @@ namespace MyWebAPI.Controllers
             return Content("Create Success!");
         }
 
-        [HttpGet("{bookId}")]
+        [HttpGet("{bookId:customName}")]
         public IActionResult GetParams(int bookId)
         {
             //https://localhost:5001/api/people/getparams/111?bookId=13
