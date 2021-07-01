@@ -61,7 +61,7 @@ namespace MyWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseDirectoryBrowser();
+   
             //使用静态文件
             app.UseStaticFiles();
 

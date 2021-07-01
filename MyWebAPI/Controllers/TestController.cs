@@ -40,6 +40,7 @@ namespace MyWebAPI.Controllers
             return Content(id);
         }
 
+
         [HttpGet("int/{id:int}")] // GET /api/test/int/3
         public IActionResult GetIntProduct(int id)
         {
