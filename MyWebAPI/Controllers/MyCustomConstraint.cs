@@ -18,7 +18,7 @@ namespace MyWebAPI.Controllers
 
         public MyCustomConstraint()
         {
-            _regex = new Regex(@"^[1-9]*$",
+            _regex = new Regex(@"^[1-9]$",
                                 RegexOptions.CultureInvariant | RegexOptions.IgnoreCase,
                                 TimeSpan.FromMilliseconds(100));
         }

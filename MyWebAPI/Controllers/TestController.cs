@@ -13,28 +13,34 @@ namespace MyWebAPI.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Route("api/{controller}")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TestController : ControllerBase
     {
         [HttpGet()]   // GET /api/test
         public IActionResult Index()
         {
-            return Content("Index");
+            return Content("Default");
         }
 
-        [HttpPost("/product")]   // POST /api/test/product
-        public IActionResult CreateProducts()
+        [HttpGet("/product")]   // GET /product
+        public IActionResult Product()
         {
-            return Content("ListProducts");
-        }
-        [HttpGet("/product")]   // GET /api/test/product
-        public IActionResult ListProducts()
-        {
-            return Content("ListProducts");
+            return Content("Product");
         }
 
-        [HttpGet("{id}")]   // GET /api/test/xyz
+        [HttpPost("product")]   // POST /api/test/product
+        public IActionResult PostProducts()
+        {
+            return Content("PostProducts");
+        }
+        [HttpGet("product")]   // GET /api/test/product
+        public IActionResult GetProducts()
+        {
+            return Content("GetProducts");
+        }
+
+        [HttpGet("~{id}")]   // GET /api/test/~xyz
         public IActionResult GetProduct(string id)
         {
             return Content(id);
@@ -51,6 +57,12 @@ namespace MyWebAPI.Controllers
         public IActionResult GetInt2Product(int id)
         {
             return Content($"int2 显示：{id}");
+        }
+
+        [HttpGet("custom/{id:customName}")]  // GET /api/test/custom/3
+        public IActionResult ConstraintTest(int id)
+        {
+            return Content($"id只能是偶数：{id}");
         }
     }
 
