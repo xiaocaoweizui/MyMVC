@@ -58,7 +58,7 @@ namespace MyMVC.Controllers
 
         }
 
-        public IActionResult GetViewModel()
+        public IActionResult GetViewModel(int? id)
         {
 
             var student = new Student
@@ -70,17 +70,17 @@ namespace MyMVC.Controllers
                 Email = "747976523@qq.com"
             };
 
-            //if (id == 1)
-            //{
-            //    student= new Student
-            //    {
-            //        ID = 1,
-            //        Name = "刘七",
-            //        Age = 22,
-            //        Sex = "女",
-            //        Email = "99999999@qq.com"
-            //    };
-            //}
+            if (id == 2)
+            {
+                student = new Student
+                {
+                    ID = 1,
+                    Name = "刘七",
+                    Age = 22,
+                    Sex = "女",
+                    Email = "99999999@qq.com"
+                };
+            }
 
             // 返回同名的视图
             return View(student);

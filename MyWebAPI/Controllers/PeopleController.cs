@@ -67,7 +67,6 @@ namespace MyWebAPI.Controllers
         [HttpPost()]
         public IActionResult Create([FromBody]Person person)
         {
-
             db.People.Add(person);
             db.SaveChanges();
 
