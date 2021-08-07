@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MyMVC.Models;
+
+@{
+ 
+    // 这里使用的是Razor语法，写的是后台C#代码
+    // ViewData的Value值是Object类型的，需要进行类型转换
+    // 常规写法是先在这里进行类型转换
+    var list = ViewBag.Students as List<Student>;
+}
+<h2>通过ViewBag传递数据</h2>
+<div  class="container">
+    <div>
+        <div>
+            <p>标题: @ViewBag.Title</p>
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in list)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Age</td>
+                            <td>@item.Sex</td>
+                            <td>@item.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
