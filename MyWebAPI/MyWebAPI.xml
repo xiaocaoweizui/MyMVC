@@ -75,23 +75,23 @@
             </summary>
             <param name="context"></param>
         </member>
-        <member name="T:MyWebAPI.Filter.MyExceptionFilterAttribute">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:MyWebAPI.Filter.MyExceptionFilterAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
-            <summary>
-            
-            </summary>
-            <param name="context"></param>
-        </member>
         <member name="T:MyWebAPI.Filter.MyAuthFilterAttribute">
             <summary>
             
             </summary>
         </member>
         <member name="M:MyWebAPI.Filter.MyAuthFilterAttribute.OnAuthorization(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyExceptionFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyExceptionFilterAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
             <summary>
             
             </summary>
