@@ -15,6 +15,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MyWebAPI.Filter;
 using MyWebAPI.Models;
 
 namespace MyWebAPI
@@ -50,7 +51,11 @@ namespace MyWebAPI
             //自定义约束类
             services.AddMyConstraint();
 
-    
+            services.AddMvc(options =>
+            {
+                //添加全局过滤器
+                options.Filters.Add<MyAllFilterAttribute>();
+            });
 
 
         }

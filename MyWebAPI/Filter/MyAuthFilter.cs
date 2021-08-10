@@ -9,11 +9,15 @@ namespace MyWebAPI.Filter
     /// <summary>
     /// 
     /// </summary>
-    public class MyFilter : IAuthorizationFilter
+    public class MyAuthFilterAttribute : Attribute, IAuthorizationFilter
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Authorization执行,执行前时间{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff")}");
         }
     }
 }

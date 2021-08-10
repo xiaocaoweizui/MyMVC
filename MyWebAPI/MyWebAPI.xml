@@ -4,12 +4,100 @@
         <name>MyWebAPI</name>
     </assembly>
     <members>
+        <member name="T:MyWebAPI.Controllers.AuthController">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:MyWebAPI.Controllers.MyCustomConstraint">
             <summary>
             自定义约束
             </summary>
         </member>
         <member name="T:MyWebAPI.Controllers.PeopleController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MyWebAPI.Controllers.TestController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyActionFilter2Attribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyActionFilter2Attribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyActionFilter2Attribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyActionFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyActionFilterAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyActionFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyAllFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyAllFilterAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyAllFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyExceptionFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyExceptionFilterAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyAuthFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyWebAPI.Filter.MyAuthFilterAttribute.OnAuthorization(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MyWebAPI.Filter.MyResultFilter">
             <summary>
             
             </summary>
