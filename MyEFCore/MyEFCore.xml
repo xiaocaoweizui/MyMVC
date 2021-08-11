@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyEFCore</name>
+    </assembly>
+    <members>
+        <member name="P:MyEFCore.Models.StudentContext.students">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MyEFCore.Models.StudentContext.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="connection"></param>
+        </member>
+        <member name="M:MyEFCore.Models.StudentContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{MyEFCore.Models.StudentContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+    </members>
+</doc>
